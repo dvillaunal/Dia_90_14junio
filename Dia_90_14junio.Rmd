@@ -1,3 +1,14 @@
+---
+title: "Dia_90_14junio"
+author: "Daniel Felipe Villa Rengifo"
+date: "14/6/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
 ```{r, eval=FALSE, include=TRUE}
 "Protocolo:
  
@@ -179,3 +190,18 @@ print(hz$multivariateNormality)
 
 print("Todos los test llevados a cabo muestran evidencias significativas (α = 0,05) de que los datos no siguen una distribución normal multivariante (podríamos deducir que el problema se debe a la falta de normalidad univariante), por lo que habrá que tener en cuenta que tendrá implicaciones en la precisión del LDA/QDA.")
 ```
+
+
+```{r, eval=FALSE, include=FALSE}
+library(knitr)
+purl("Dia_90_14junio.Rmd", "main.r")
+```
+
+
+
+
+
+
+
+
+

@@ -1,32 +1,17 @@
-```{r, eval=FALSE, include=TRUE}
-"Protocolo:
- 
- 1. Daniel Felipe Villa Rengifo
- 
- 2. Lenguaje: R
- 
- 3. Tema: ANÁLISIS DISCRIMINANTE LINEAL Y CUADRÁTICO EN R [Parte 2]
- 
- 4. Fuentes:  
-    https://www.r-bloggers.com/2018/11/linear-quadratic-and-regularized-discriminant-analysis/"
-```
-
-> Nota: Hoy seguiremos en continuidad con [Dia_88_13junio] con = "Análisis de normalidad (univariante y multivariante) y homogeneidad de varianza".
-
-# Análisis de normalidad (univariante y multivariante) y homogeneidad de varianza
-
-__Combinando resultados numéricos de distintos tests junto con métodos gráficos (histogramas, Q-Q plots) podremos llegar a conclusiones más robustas.__
+## ---- eval=FALSE, include=TRUE-------------------------------------------------------
+## "Protocolo:
+## 
+##  1. Daniel Felipe Villa Rengifo
+## 
+##  2. Lenguaje: R
+## 
+##  3. Tema: ANÁLISIS DISCRIMINANTE LINEAL Y CUADRÁTICO EN R [Parte 2]
+## 
+##  4. Fuentes:
+##     https://www.r-bloggers.com/2018/11/linear-quadratic-and-regularized-discriminant-analysis/"
 
 
-## Normalidad univariante
-
-+ Funciones que utilizaremos:
-  
-  + `hist()` y `curve()`/`lines()` -> Histograma y curva
-  + `qqnorm()` y `qqline()` -> Gráfico Q-Q normal de los valores de “y” y línea teórica normal
-  + `shapiro.test()` -> Test de normalidad de Shapiro-Wilk
-
-```{r}
+## ------------------------------------------------------------------------------------
 # Creador de los OUTPUTS:
 sink(file = "OUTPUTS.txt")
 
@@ -105,13 +90,9 @@ kable(Auto2.tidy %>% group_by(mpg01, variable) %>% summarise(p_value_Shapiro.tes
 
 print("En conjunto hay evidencias de falta de normalidad univariante en todas las variables empleadas como predictores, menos la variable weight para la clase mpg01 = 0 (rendimiento bajo).")
 
-```
 
-# Normalidad multivariante
 
-+ `mvn()` -> Función del paquete MVN, que incluye argumentos para llevar a cabo tests y gráficos de normalidad multivariante, detección de outliers multivariantes, tests y gráficos de normalidad univariante.
-
-```{r}
+## ------------------------------------------------------------------------------------
 #Además de la normalidad univariante, se requiere evaluar la normalidad multivariante.
 
 # La presencia de valores atípicos puede ser causa de no cumplir esta condición.
@@ -178,4 +159,3 @@ print(hz$multivariateNormality)
 #Conclusión:
 
 print("Todos los test llevados a cabo muestran evidencias significativas (α = 0,05) de que los datos no siguen una distribución normal multivariante (podríamos deducir que el problema se debe a la falta de normalidad univariante), por lo que habrá que tener en cuenta que tendrá implicaciones en la precisión del LDA/QDA.")
-```
